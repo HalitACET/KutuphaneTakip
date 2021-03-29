@@ -33,5 +33,16 @@ namespace KutuphaneTakip
             Okuyucu frm = new Okuyucu();
             frm.Show();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Kitap_Ekleme_Formu frm = new Kitap_Ekleme_Formu();
+            frm.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

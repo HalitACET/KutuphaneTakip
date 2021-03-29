@@ -101,6 +101,7 @@
             this.button5.TabIndex = 7;
             this.button5.Text = "Programı Kapat";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -119,6 +120,7 @@
             this.button8.TabIndex = 4;
             this.button8.Text = "Kitap Ekle";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // groupBox1
             // 

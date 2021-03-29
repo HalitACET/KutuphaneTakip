@@ -21,7 +21,7 @@ namespace KutuphaneTakip
         public void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Tbl_Uyeler",bgl.baglan());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Uyeler.ID,TCNO,Adi,Soyadi,Tbl_Sehirler.Sehirler,DogumTarihi,Telefon,Eposta,UyelikTarihi,Cinsiyet,Adres FROM Tbl_Uyeler inner join Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Uyeler.DogumYeriID", bgl.baglan());
             da.Fill(dt);
             dataGridView1.DataSource = dt;
             bgl.baglan().Close();
@@ -41,25 +41,70 @@ namespace KutuphaneTakip
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("INSERT INTO Tbl_Uyeler (TCNO,Adi,Soyadi,DogumYeriID,DogumTarihi,Telefon,Eposta,UyelikTarihi,Cinsiyet,Adres) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10)",bgl.baglan());
-            komut.Parameters.AddWithValue("@p1",mskTC.Text);
-            komut.Parameters.AddWithValue("@p2",txtAd.Text);
-            komut.Parameters.AddWithValue("@p3",txtSoyad.Text);
-            komut.Parameters.AddWithValue("@p4",cmbDgm.Text);
-            komut.Parameters.AddWithValue("@p5",mskDgmtrh.Text);
-            komut.Parameters.AddWithValue("@p6",mskTel.Text);
-            komut.Parameters.AddWithValue("@p7",txtEposta.Text);
-            komut.Parameters.AddWithValue("@p8",mskUylktrh.Text);
-            komut.Parameters.AddWithValue("@p9",cmbCinsiyet.Text);
-            komut.Parameters.AddWithValue("@p10",rchtxtAdres.Text);
+            int a = Convert.ToInt16((+1) + cmbDgm.SelectedIndex);
+
+            SqlCommand komut = new SqlCommand("insert into Tbl_Uyeler (TCNO,Adi,Soyadi,DogumYeriID,DogumTarihi,Telefon,Eposta,UyelikTarihi,Cinsiyet,Adres) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10)", bgl.baglan());
+            komut.Parameters.AddWithValue("@p1", mskTC.Text);
+            komut.Parameters.AddWithValue("@p2", txtAd.Text);
+            komut.Parameters.AddWithValue("@p3", txtSoyad.Text);
+            komut.Parameters.AddWithValue("@p4", a);
+            komut.Parameters.AddWithValue("@p5", Convert.ToDateTime(mskDgmtrh.Text).Date);
+            komut.Parameters.AddWithValue("@p6", mskTel.Text);
+            komut.Parameters.AddWithValue("@p7", txtEposta.Text);
+            komut.Parameters.AddWithValue("@p8", Convert.ToDateTime(mskUylktrh.Text).Date);
+            komut.Parameters.AddWithValue("@p9", cmbCinsiyet.Text);
+            komut.Parameters.AddWithValue("@p10", rchtxtAdres.Text);
             komut.ExecuteNonQuery();
             bgl.baglan().Close();
-            MessageBox.Show("Kayıt Eklendi...");
+            MessageBox.Show("Kayıt Eklendi...","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
             listele();
+        }
 
+        private void btnGüncelle_Click(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt16((+1) + cmbDgm.SelectedIndex);
 
-            
-            
+            SqlCommand komut = new SqlCommand("UPDATE Tbl_Uyeler SET TCNO=@p1,Adi=@p2,Soyadi=@p3,DogumYeriID=@p4,DogumTarihi=@p5,Telefon=@p6,Eposta=@p7,UyelikTarihi=@p8,Cinsiyet=@p9,Adres=@p10 Where ID=@p11", bgl.baglan());
+            komut.Parameters.AddWithValue("@p1", mskTC.Text);
+            komut.Parameters.AddWithValue("@p2", txtAd.Text);
+            komut.Parameters.AddWithValue("@p3", txtSoyad.Text);
+            komut.Parameters.AddWithValue("@p4", a);
+            komut.Parameters.AddWithValue("@p5", Convert.ToDateTime(mskDgmtrh.Text).Date);
+            komut.Parameters.AddWithValue("@p6", mskTel.Text);
+            komut.Parameters.AddWithValue("@p7", txtEposta.Text);
+            komut.Parameters.AddWithValue("@p8", Convert.ToDateTime(mskUylktrh.Text).Date);
+            komut.Parameters.AddWithValue("@p9", cmbCinsiyet.Text);
+            komut.Parameters.AddWithValue("@p10", rchtxtAdres.Text);
+            komut.Parameters.AddWithValue("@p11",textBox1.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglan().Close();
+            MessageBox.Show("Kayıt Güncellendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listele();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox1.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            mskTC.Text= dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtAd.Text= dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtSoyad.Text= dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            cmbDgm.Text= dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            mskDgmtrh.Text= dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            mskTel.Text= dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            txtEposta.Text= dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            mskUylktrh.Text= dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            cmbCinsiyet.Text= dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            rchtxtAdres.Text= dataGridView1.CurrentRow.Cells[10].Value.ToString();
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("DELETE FROM Tbl_Uyeler WHERE ID=@p1",bgl.baglan());
+            komut.Parameters.AddWithValue("@p1",textBox1.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglan().Close();
+            MessageBox.Show("Kayıt Silindi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listele();
         }
     }
 }
