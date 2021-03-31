@@ -24,12 +24,23 @@ namespace KutuphaneTakip
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Tbl_Kitaplar", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
             KitapListesi frm = new KitapListesi();
             frm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Uyeler.ID,TCNO,Adi,Soyadi,Tbl_Sehirler.Sehirler,DogumTarihi,Telefon,Eposta,UyelikTarihi,Cinsiyet,Adres FROM Tbl_Uyeler inner join Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Uyeler.DogumYeriID", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            bgl.baglan().Close();
+
             Okuyucu frm = new Okuyucu();
             frm.Show();
         }
@@ -43,6 +54,12 @@ namespace KutuphaneTakip
         private void button5_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Kitap_Verme frm = new Kitap_Verme();
+            frm.Show();
         }
     }
 }

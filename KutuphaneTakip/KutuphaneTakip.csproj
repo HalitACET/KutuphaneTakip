@@ -59,6 +59,12 @@
     <Compile Include="Kitap Ekleme Formu.Designer.cs">
       <DependentUpon>Kitap Ekleme Formu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kitap Verme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitap Verme.Designer.cs">
+      <DependentUpon>Kitap Verme.cs</DependentUpon>
+    </Compile>
     <Compile Include="KitapListesi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kitap Ekleme Formu.resx">
       <DependentUpon>Kitap Ekleme Formu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitap Verme.resx">
+      <DependentUpon>Kitap Verme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KitapListesi.resx">
       <DependentUpon>KitapListesi.cs</DependentUpon>

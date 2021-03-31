@@ -30,24 +30,26 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBarkodNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbYayinEvi = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbKitapturu = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSayfaSol = new System.Windows.Forms.TextBox();
+            this.txtSayfaSag = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnListele = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtFiyatSag = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtFiyatSol = new System.Windows.Forms.TextBox();
+            this.txtKitapAd = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbYazar = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -73,12 +75,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(947, 581);
             this.dataGridView1.TabIndex = 0;
             // 
-            // textBox1
+            // txtBarkodNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 29);
-            this.textBox1.TabIndex = 1;
+            this.txtBarkodNo.Location = new System.Drawing.Point(155, 128);
+            this.txtBarkodNo.Name = "txtBarkodNo";
+            this.txtBarkodNo.Size = new System.Drawing.Size(145, 29);
+            this.txtBarkodNo.TabIndex = 1;
             // 
             // label1
             // 
@@ -98,20 +100,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Yazar:";
             // 
-            // textBox2
+            // cmbYayinEvi
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 187);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(145, 29);
-            this.textBox2.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(155, 246);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 32);
-            this.comboBox1.TabIndex = 5;
+            this.cmbYayinEvi.FormattingEnabled = true;
+            this.cmbYayinEvi.Location = new System.Drawing.Point(155, 246);
+            this.cmbYayinEvi.Name = "cmbYayinEvi";
+            this.cmbYayinEvi.Size = new System.Drawing.Size(145, 32);
+            this.cmbYayinEvi.TabIndex = 5;
             // 
             // label3
             // 
@@ -131,13 +126,13 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Kitap Türü:";
             // 
-            // comboBox2
+            // cmbKitapturu
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(155, 308);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(145, 32);
-            this.comboBox2.TabIndex = 7;
+            this.cmbKitapturu.FormattingEnabled = true;
+            this.cmbKitapturu.Location = new System.Drawing.Point(155, 308);
+            this.cmbKitapturu.Name = "cmbKitapturu";
+            this.cmbKitapturu.Size = new System.Drawing.Size(145, 32);
+            this.cmbKitapturu.TabIndex = 7;
             // 
             // label5
             // 
@@ -148,19 +143,19 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Kitap Sayfa:";
             // 
-            // textBox3
+            // txtSayfaSol
             // 
-            this.textBox3.Location = new System.Drawing.Point(155, 370);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(57, 29);
-            this.textBox3.TabIndex = 9;
+            this.txtSayfaSol.Location = new System.Drawing.Point(155, 370);
+            this.txtSayfaSol.Name = "txtSayfaSol";
+            this.txtSayfaSol.Size = new System.Drawing.Size(57, 29);
+            this.txtSayfaSol.TabIndex = 9;
             // 
-            // textBox4
+            // txtSayfaSag
             // 
-            this.textBox4.Location = new System.Drawing.Point(243, 372);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(57, 29);
-            this.textBox4.TabIndex = 11;
+            this.txtSayfaSag.Location = new System.Drawing.Point(243, 372);
+            this.txtSayfaSag.Name = "txtSayfaSag";
+            this.txtSayfaSag.Size = new System.Drawing.Size(57, 29);
+            this.txtSayfaSag.TabIndex = 11;
             // 
             // label6
             // 
@@ -173,22 +168,24 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.cmbYazar);
+            this.groupBox2.Controls.Add(this.txtKitapAd);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.btnListele);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.txtFiyatSag);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txtFiyatSol);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtBarkodNo);
+            this.groupBox2.Controls.Add(this.txtSayfaSag);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtSayfaSol);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cmbYayinEvi);
+            this.groupBox2.Controls.Add(this.cmbKitapturu);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
@@ -196,6 +193,15 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtrele";
+            // 
+            // btnListele
+            // 
+            this.btnListele.Location = new System.Drawing.Point(35, 492);
+            this.btnListele.Name = "btnListele";
+            this.btnListele.Size = new System.Drawing.Size(265, 47);
+            this.btnListele.TabIndex = 17;
+            this.btnListele.Text = "Listele";
+            this.btnListele.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -206,12 +212,12 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "=";
             // 
-            // textBox5
+            // txtFiyatSag
             // 
-            this.textBox5.Location = new System.Drawing.Point(243, 431);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(57, 29);
-            this.textBox5.TabIndex = 15;
+            this.txtFiyatSag.Location = new System.Drawing.Point(243, 431);
+            this.txtFiyatSag.Name = "txtFiyatSag";
+            this.txtFiyatSag.Size = new System.Drawing.Size(57, 29);
+            this.txtFiyatSag.TabIndex = 15;
             // 
             // label8
             // 
@@ -222,26 +228,42 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Kitap Fiyatı:";
             // 
-            // textBox6
+            // txtFiyatSol
             // 
-            this.textBox6.Location = new System.Drawing.Point(155, 429);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(57, 29);
-            this.textBox6.TabIndex = 13;
+            this.txtFiyatSol.Location = new System.Drawing.Point(155, 429);
+            this.txtFiyatSol.Name = "txtFiyatSol";
+            this.txtFiyatSol.Size = new System.Drawing.Size(57, 29);
+            this.txtFiyatSol.TabIndex = 13;
             // 
-            // button1
+            // txtKitapAd
             // 
-            this.button1.Location = new System.Drawing.Point(35, 492);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(265, 47);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Listele";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtKitapAd.Location = new System.Drawing.Point(155, 58);
+            this.txtKitapAd.Name = "txtKitapAd";
+            this.txtKitapAd.Size = new System.Drawing.Size(145, 29);
+            this.txtKitapAd.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(54, 61);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 24);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Kitap Ad:";
+            // 
+            // cmbYazar
+            // 
+            this.cmbYazar.FormattingEnabled = true;
+            this.cmbYazar.Location = new System.Drawing.Point(155, 187);
+            this.cmbYazar.Name = "cmbYazar";
+            this.cmbYazar.Size = new System.Drawing.Size(145, 32);
+            this.cmbYazar.TabIndex = 22;
             // 
             // KitapListesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1334, 633);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -262,23 +284,25 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBarkodNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbYayinEvi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbKitapturu;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtSayfaSol;
+        private System.Windows.Forms.TextBox txtSayfaSag;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnListele;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtFiyatSag;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtFiyatSol;
+        private System.Windows.Forms.ComboBox cmbYazar;
+        private System.Windows.Forms.TextBox txtKitapAd;
+        private System.Windows.Forms.Label label10;
     }
 }

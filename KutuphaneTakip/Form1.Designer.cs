@@ -50,6 +50,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -57,7 +58,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(234, 12);
+            this.button1.Location = new System.Drawing.Point(340, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 66);
             this.button1.TabIndex = 0;
@@ -67,7 +68,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(342, 12);
+            this.button2.Location = new System.Drawing.Point(448, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 66);
             this.button2.TabIndex = 1;
@@ -77,7 +78,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(450, 12);
+            this.button3.Location = new System.Drawing.Point(556, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(102, 66);
             this.button3.TabIndex = 2;
@@ -86,16 +87,17 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(558, 12);
+            this.button4.Location = new System.Drawing.Point(664, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 66);
             this.button4.TabIndex = 3;
             this.button4.Text = "Kitap Teslim";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(882, 12);
+            this.button5.Location = new System.Drawing.Point(988, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 66);
             this.button5.TabIndex = 7;
@@ -105,7 +107,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(774, 12);
+            this.button6.Location = new System.Drawing.Point(880, 12);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(102, 66);
             this.button6.TabIndex = 6;
@@ -114,7 +116,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(666, 12);
+            this.button8.Location = new System.Drawing.Point(772, 12);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(102, 66);
             this.button8.TabIndex = 4;
@@ -133,6 +135,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
@@ -142,6 +146,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(556, 158);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 26);
@@ -158,6 +163,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(394, 158);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 26);
@@ -165,6 +171,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(70, 158);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(156, 26);
@@ -172,6 +179,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(232, 158);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(156, 26);
@@ -250,11 +258,22 @@
             this.textBox5.Size = new System.Drawing.Size(156, 26);
             this.textBox5.TabIndex = 15;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(232, 12);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(102, 66);
+            this.button7.TabIndex = 18;
+            this.button7.Text = "Genel Görünüm";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1328, 637);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -310,6 +329,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button7;
     }
 }
 

@@ -1,0 +1,147 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+namespace KutuphaneTakip
+{
+    public partial class Kitap_Verme : Form
+    {
+        public Kitap_Verme()
+        {
+            InitializeComponent();
+        }
+        Baglanti bgl = new Baglanti();
+        public void UyeListele()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Tbl_Uyeler",bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+        public void KitapListele()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID", bgl.baglan());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+        public void IslemListele()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Tbl_Islemler", bgl.baglan());
+            da.Fill(dt);
+            dataGridView3.DataSource = dt;
+        }
+        private void Kitap_Verme_Load(object sender, EventArgs e)
+        {
+            UyeListele();
+            KitapListele();
+            IslemListele();
+
+            DateTime date = DateTime.Now;
+            mskVerilenTarih.Text = date.ToShortDateString();
+        }
+
+        private void txtKitapAd_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where KitapAd like '%" + txtKitapAd.Text+"%'", bgl.baglan());
+            da.Fill(dt);
+            dataGridView2.DataSource = dt;
+        }
+
+        private void mskTC_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Tbl_Uyeler Where TCNO like '%"+mskTC.Text+"%'", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           txtUyeID.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtKitapID.Text= dataGridView2.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtİslemID.Text= dataGridView3.CurrentRow.Cells[0].Value.ToString();
+            txtUyeID.Text= dataGridView3.CurrentRow.Cells[1].Value.ToString();
+            txtKitapID.Text= dataGridView3.CurrentRow.Cells[2].Value.ToString();
+            mskVerilenTarih.Text= dataGridView3.CurrentRow.Cells[3].Value.ToString();
+            mskAlınacakTarih.Text= dataGridView3.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("INSERT INTO Tbl_Islemler (UyeID,KitapID,VerilenTarih,AlinanTarih) Values (@p1,@p2,@p3,@p4)", bgl.baglan());
+            komut.Parameters.AddWithValue("@p1",txtUyeID.Text);
+            komut.Parameters.AddWithValue("@p2",txtKitapID.Text);
+            komut.Parameters.AddWithValue("@p3",Convert.ToDateTime(mskVerilenTarih.Text));
+            komut.Parameters.AddWithValue("@p4",Convert.ToDateTime(mskAlınacakTarih.Text));
+            komut.ExecuteNonQuery();
+            bgl.baglan().Close();
+            MessageBox.Show("Kayıt Eklendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            IslemListele();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now.AddDays(15);
+            mskAlınacakTarih.Text = date.ToShortDateString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now.AddDays(30);
+            mskAlınacakTarih.Text = date.ToShortDateString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now.AddDays(45);
+            mskAlınacakTarih.Text = date.ToShortDateString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now.AddDays(60);
+            mskAlınacakTarih.Text = date.ToShortDateString();
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("DELETE FROM Tbl_Islemler Where ID=@p1",bgl.baglan());
+            komut.Parameters.AddWithValue("@p1",txtİslemID.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglan().Close();
+            MessageBox.Show("Kayıt Silindi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            IslemListele();
+        }
+
+        private void BtnGüncelle_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Update Tbl_Islemler SET UyeID=@p1,KitapID=@p2,VerilenTarih=@p3,AlinanTarih=@p4 Where ID=@p5",bgl.baglan());
+            komut.Parameters.AddWithValue("@p1",txtUyeID.Text);
+            komut.Parameters.AddWithValue("@p2",txtKitapID.Text);
+            komut.Parameters.AddWithValue("@p3", Convert.ToDateTime(mskVerilenTarih.Text));
+            komut.Parameters.AddWithValue("@p4",Convert.ToDateTime(mskAlınacakTarih.Text));
+            komut.Parameters.AddWithValue("@p5",txtİslemID.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglan().Close();
+            MessageBox.Show("Kayıt Güncellendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            IslemListele();
+        }
+    }
+}
