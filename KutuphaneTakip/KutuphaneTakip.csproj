@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Giriş Formu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giriş Formu.Designer.cs">
+      <DependentUpon>Giriş Formu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kitap Ekleme Formu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Giriş Formu.resx">
+      <DependentUpon>Giriş Formu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kitap Ekleme Formu.resx">
       <DependentUpon>Kitap Ekleme Formu.cs</DependentUpon>

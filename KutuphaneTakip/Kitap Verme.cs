@@ -16,6 +16,7 @@ namespace KutuphaneTakip
         {
             InitializeComponent();
         }
+        public int a;
         Baglanti bgl = new Baglanti();
         public void UyeListele()
         {
@@ -72,6 +73,10 @@ namespace KutuphaneTakip
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtKitapID.Text= dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            label8.Text = dataGridView2.CurrentRow.Cells[11].Value.ToString();
+            a = Convert.ToInt16(label8.Text);
+            a--;
+            label8.Text = a.ToString();
         }
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -92,8 +97,15 @@ namespace KutuphaneTakip
             komut.Parameters.AddWithValue("@p4",Convert.ToDateTime(mskAlınacakTarih.Text));
             komut.ExecuteNonQuery();
             bgl.baglan().Close();
+
+            SqlCommand komut3 = new SqlCommand("Update Tbl_Kitaplar SET Stok=@p1 Where ID=@p2",bgl.baglan());
+            komut3.Parameters.AddWithValue("@p1", label8.Text);
+            komut3.Parameters.AddWithValue("@p2",txtKitapID.Text);
+            komut3.ExecuteNonQuery();
+            bgl.baglan().Close();
             MessageBox.Show("Kayıt Eklendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             IslemListele();
+            KitapListele();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -142,6 +154,11 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Güncellendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             IslemListele();
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

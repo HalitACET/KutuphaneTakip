@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kitap_Ekleme_Formu));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnGüncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
@@ -58,13 +59,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.btnGüncelle);
             this.groupBox2.Controls.Add(this.btnSil);
             this.groupBox2.Controls.Add(this.btnEkle);
@@ -103,7 +107,7 @@
             this.btnGüncelle.Location = new System.Drawing.Point(211, 637);
             this.btnGüncelle.Name = "btnGüncelle";
             this.btnGüncelle.Size = new System.Drawing.Size(183, 44);
-            this.btnGüncelle.TabIndex = 42;
+            this.btnGüncelle.TabIndex = 14;
             this.btnGüncelle.Text = "Güncelle";
             this.btnGüncelle.UseVisualStyleBackColor = true;
             this.btnGüncelle.Click += new System.EventHandler(this.btnGüncelle_Click);
@@ -113,7 +117,7 @@
             this.btnSil.Location = new System.Drawing.Point(211, 587);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(183, 44);
-            this.btnSil.TabIndex = 41;
+            this.btnSil.TabIndex = 13;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
@@ -123,7 +127,7 @@
             this.btnEkle.Location = new System.Drawing.Point(212, 537);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(183, 44);
-            this.btnEkle.TabIndex = 40;
+            this.btnEkle.TabIndex = 12;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
@@ -133,7 +137,7 @@
             this.rchtxtKitapKonu.Location = new System.Drawing.Point(212, 285);
             this.rchtxtKitapKonu.Name = "rchtxtKitapKonu";
             this.rchtxtKitapKonu.Size = new System.Drawing.Size(183, 96);
-            this.rchtxtKitapKonu.TabIndex = 39;
+            this.rchtxtKitapKonu.TabIndex = 7;
             this.rchtxtKitapKonu.Text = "";
             // 
             // mskBaskiTarih
@@ -142,7 +146,7 @@
             this.mskBaskiTarih.Mask = "00/00/0000";
             this.mskBaskiTarih.Name = "mskBaskiTarih";
             this.mskBaskiTarih.Size = new System.Drawing.Size(183, 31);
-            this.mskBaskiTarih.TabIndex = 38;
+            this.mskBaskiTarih.TabIndex = 9;
             this.mskBaskiTarih.ValidatingType = typeof(System.DateTime);
             // 
             // cmbBaskıYer
@@ -154,7 +158,7 @@
             this.cmbBaskıYer.Location = new System.Drawing.Point(212, 387);
             this.cmbBaskıYer.Name = "cmbBaskıYer";
             this.cmbBaskıYer.Size = new System.Drawing.Size(183, 33);
-            this.cmbBaskıYer.TabIndex = 37;
+            this.cmbBaskıYer.TabIndex = 8;
             // 
             // cmbKitaptur
             // 
@@ -165,56 +169,56 @@
             this.cmbKitaptur.Location = new System.Drawing.Point(212, 209);
             this.cmbKitaptur.Name = "cmbKitaptur";
             this.cmbKitaptur.Size = new System.Drawing.Size(183, 33);
-            this.cmbKitaptur.TabIndex = 36;
+            this.cmbKitaptur.TabIndex = 5;
             // 
             // txtStok
             // 
             this.txtStok.Location = new System.Drawing.Point(211, 500);
             this.txtStok.Name = "txtStok";
             this.txtStok.Size = new System.Drawing.Size(183, 31);
-            this.txtStok.TabIndex = 35;
+            this.txtStok.TabIndex = 11;
             // 
             // txtKitapFiyat
             // 
             this.txtKitapFiyat.Location = new System.Drawing.Point(212, 463);
             this.txtKitapFiyat.Name = "txtKitapFiyat";
             this.txtKitapFiyat.Size = new System.Drawing.Size(183, 31);
-            this.txtKitapFiyat.TabIndex = 34;
+            this.txtKitapFiyat.TabIndex = 10;
             // 
             // txtKitapSayfa
             // 
             this.txtKitapSayfa.Location = new System.Drawing.Point(212, 248);
             this.txtKitapSayfa.Name = "txtKitapSayfa";
             this.txtKitapSayfa.Size = new System.Drawing.Size(183, 31);
-            this.txtKitapSayfa.TabIndex = 33;
+            this.txtKitapSayfa.TabIndex = 6;
             // 
             // txtYayınEvi
             // 
             this.txtYayınEvi.Location = new System.Drawing.Point(212, 172);
             this.txtYayınEvi.Name = "txtYayınEvi";
             this.txtYayınEvi.Size = new System.Drawing.Size(183, 31);
-            this.txtYayınEvi.TabIndex = 32;
+            this.txtYayınEvi.TabIndex = 4;
             // 
             // txtYazar
             // 
             this.txtYazar.Location = new System.Drawing.Point(212, 135);
             this.txtYazar.Name = "txtYazar";
             this.txtYazar.Size = new System.Drawing.Size(183, 31);
-            this.txtYazar.TabIndex = 31;
+            this.txtYazar.TabIndex = 3;
             // 
             // txtKitapAd
             // 
             this.txtKitapAd.Location = new System.Drawing.Point(212, 98);
             this.txtKitapAd.Name = "txtKitapAd";
             this.txtKitapAd.Size = new System.Drawing.Size(183, 31);
-            this.txtKitapAd.TabIndex = 30;
+            this.txtKitapAd.TabIndex = 2;
             // 
             // txtBarkod
             // 
             this.txtBarkod.Location = new System.Drawing.Point(212, 61);
             this.txtBarkod.Name = "txtBarkod";
             this.txtBarkod.Size = new System.Drawing.Size(183, 31);
-            this.txtBarkod.TabIndex = 29;
+            this.txtBarkod.TabIndex = 1;
             // 
             // txtID
             // 
@@ -353,6 +357,16 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(37, 562);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 107);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
             // Kitap_Ekleme_Formu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
@@ -370,6 +384,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,5 +421,6 @@
         private System.Windows.Forms.TextBox txtBarkod;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
