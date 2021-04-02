@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Giriş_Formu));
             this.txtSifre = new System.Windows.Forms.TextBox();
-            this.mskTC = new System.Windows.Forms.MaskedTextBox();
             this.btnGiris = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtKullanici = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,15 +46,6 @@
             this.txtSifre.Size = new System.Drawing.Size(159, 31);
             this.txtSifre.TabIndex = 0;
             this.txtSifre.UseSystemPasswordChar = true;
-            // 
-            // mskTC
-            // 
-            this.mskTC.Location = new System.Drawing.Point(168, 84);
-            this.mskTC.Mask = "00000000000";
-            this.mskTC.Name = "mskTC";
-            this.mskTC.Size = new System.Drawing.Size(159, 31);
-            this.mskTC.TabIndex = 1;
-            this.mskTC.ValidatingType = typeof(int);
             // 
             // btnGiris
             // 
@@ -69,11 +60,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 87);
+            this.label1.Location = new System.Drawing.Point(12, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 25);
+            this.label1.Size = new System.Drawing.Size(150, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "TCNO:";
+            this.label1.Text = "Kullanıcı Adı:";
             // 
             // label2
             // 
@@ -104,23 +95,30 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // txtKullanici
+            // 
+            this.txtKullanici.Location = new System.Drawing.Point(168, 84);
+            this.txtKullanici.Name = "txtKullanici";
+            this.txtKullanici.Size = new System.Drawing.Size(159, 31);
+            this.txtKullanici.TabIndex = 7;
+            // 
             // Giriş_Formu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(601, 239);
+            this.Controls.Add(this.txtKullanici);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGiris);
-            this.Controls.Add(this.mskTC);
             this.Controls.Add(this.txtSifre);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "Giriş_Formu";
-            this.Text = "Giriş_Formu";
+            this.Text = "Giriş Formu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,11 +128,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtSifre;
-        private System.Windows.Forms.MaskedTextBox mskTC;
         private System.Windows.Forms.Button btnGiris;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtKullanici;
     }
 }

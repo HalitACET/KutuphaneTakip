@@ -38,11 +38,11 @@
             this.button8 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAdSoyad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTCNO = new System.Windows.Forms.TextBox();
+            this.txtBarkodNo = new System.Windows.Forms.TextBox();
+            this.txtSecilenKitap = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(340, 12);
+            this.button1.Location = new System.Drawing.Point(556, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 66);
             this.button1.TabIndex = 0;
@@ -71,7 +72,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(448, 12);
+            this.button2.Location = new System.Drawing.Point(340, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 66);
             this.button2.TabIndex = 1;
@@ -81,12 +82,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(556, 12);
+            this.button3.Location = new System.Drawing.Point(772, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(102, 66);
             this.button3.TabIndex = 2;
             this.button3.Text = "Verilen Kitaplar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -100,7 +102,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(988, 12);
+            this.button5.Location = new System.Drawing.Point(1096, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 66);
             this.button5.TabIndex = 7;
@@ -116,10 +118,11 @@
             this.button6.TabIndex = 6;
             this.button6.Text = "Tarihi Geçenler";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(772, 12);
+            this.button8.Location = new System.Drawing.Point(448, 12);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(102, 66);
             this.button8.TabIndex = 4;
@@ -146,14 +149,15 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1298, 410);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // textBox1
+            // txtAdSoyad
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(556, 158);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 26);
-            this.textBox1.TabIndex = 9;
+            this.txtAdSoyad.Enabled = false;
+            this.txtAdSoyad.Location = new System.Drawing.Point(556, 158);
+            this.txtAdSoyad.Name = "txtAdSoyad";
+            this.txtAdSoyad.Size = new System.Drawing.Size(156, 26);
+            this.txtAdSoyad.TabIndex = 9;
             // 
             // label1
             // 
@@ -164,29 +168,29 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Okuyucu Ad Soyad";
             // 
-            // textBox2
+            // txtTCNO
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(394, 158);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 26);
-            this.textBox2.TabIndex = 11;
+            this.txtTCNO.Enabled = false;
+            this.txtTCNO.Location = new System.Drawing.Point(394, 158);
+            this.txtTCNO.Name = "txtTCNO";
+            this.txtTCNO.Size = new System.Drawing.Size(156, 26);
+            this.txtTCNO.TabIndex = 11;
             // 
-            // textBox3
+            // txtBarkodNo
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(70, 158);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 26);
-            this.textBox3.TabIndex = 13;
+            this.txtBarkodNo.Enabled = false;
+            this.txtBarkodNo.Location = new System.Drawing.Point(70, 158);
+            this.txtBarkodNo.Name = "txtBarkodNo";
+            this.txtBarkodNo.Size = new System.Drawing.Size(156, 26);
+            this.txtBarkodNo.TabIndex = 13;
             // 
-            // textBox4
+            // txtSecilenKitap
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(232, 158);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 26);
-            this.textBox4.TabIndex = 12;
+            this.txtSecilenKitap.Enabled = false;
+            this.txtSecilenKitap.Location = new System.Drawing.Point(232, 158);
+            this.txtSecilenKitap.Name = "txtSecilenKitap";
+            this.txtSecilenKitap.Size = new System.Drawing.Size(156, 26);
+            this.txtSecilenKitap.TabIndex = 12;
             // 
             // label2
             // 
@@ -240,10 +244,16 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "KitapAd",
+            "TCNO",
+            "Barkod NO",
+            "Ad"});
             this.comboBox1.Location = new System.Drawing.Point(139, 51);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(144, 28);
             this.comboBox1.TabIndex = 17;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -260,6 +270,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(156, 26);
             this.textBox5.TabIndex = 15;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // button7
             // 
@@ -269,6 +280,7 @@
             this.button7.TabIndex = 18;
             this.button7.Text = "Genel Görünüm";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // pictureBox1
             // 
@@ -280,23 +292,34 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Location = new System.Drawing.Point(988, 12);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(102, 66);
+            this.btnAdmin.TabIndex = 20;
+            this.btnAdmin.Text = "Admin Ekle";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1328, 637);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBarkodNo);
+            this.Controls.Add(this.txtSecilenKitap);
+            this.Controls.Add(this.txtTCNO);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAdSoyad);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
@@ -308,7 +331,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Ana Sayfa";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -331,11 +354,11 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAdSoyad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTCNO;
+        private System.Windows.Forms.TextBox txtBarkodNo;
+        private System.Windows.Forms.TextBox txtSecilenKitap;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -346,6 +369,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }
 

@@ -35,7 +35,7 @@ namespace KutuphaneTakip
         public void IslemListele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Tbl_Islemler", bgl.baglan());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Islemler.ID,Tbl_Islemler.UyeID,Tbl_Islemler.KitapID,Tbl_Islemler.VerilenTarih,Tbl_Islemler.AlinanTarih,Tbl_Kitaplar.Stok FROM Tbl_Islemler inner join Tbl_Kitaplar on Tbl_Kitaplar.ID=Tbl_Islemler.KitapID", bgl.baglan());
             da.Fill(dt);
             dataGridView3.DataSource = dt;
         }
@@ -75,8 +75,7 @@ namespace KutuphaneTakip
             txtKitapID.Text= dataGridView2.CurrentRow.Cells[0].Value.ToString();
             label8.Text = dataGridView2.CurrentRow.Cells[11].Value.ToString();
             a = Convert.ToInt16(label8.Text);
-            a--;
-            label8.Text = a.ToString();
+            
         }
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -86,15 +85,19 @@ namespace KutuphaneTakip
             txtKitapID.Text= dataGridView3.CurrentRow.Cells[2].Value.ToString();
             mskVerilenTarih.Text= dataGridView3.CurrentRow.Cells[3].Value.ToString();
             mskAlınacakTarih.Text= dataGridView3.CurrentRow.Cells[4].Value.ToString();
+            label8.Text= dataGridView3.CurrentRow.Cells[5].Value.ToString();
+            a = Convert.ToInt16(label8.Text);
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+            a--;
+            label8.Text = a.ToString();
             SqlCommand komut = new SqlCommand("INSERT INTO Tbl_Islemler (UyeID,KitapID,VerilenTarih,AlinanTarih) Values (@p1,@p2,@p3,@p4)", bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtUyeID.Text);
             komut.Parameters.AddWithValue("@p2",txtKitapID.Text);
-            komut.Parameters.AddWithValue("@p3",Convert.ToDateTime(mskVerilenTarih.Text));
-            komut.Parameters.AddWithValue("@p4",Convert.ToDateTime(mskAlınacakTarih.Text));
+            komut.Parameters.AddWithValue("@p3",mskVerilenTarih.Text);
+            komut.Parameters.AddWithValue("@p4",mskAlınacakTarih.Text);
             komut.ExecuteNonQuery();
             bgl.baglan().Close();
 
@@ -159,6 +162,26 @@ namespace KutuphaneTakip
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            a++;
+            label8.Text = a.ToString();
+            SqlCommand komut3 = new SqlCommand("Update Tbl_Kitaplar SET Stok=@p1 Where ID=@p2", bgl.baglan());
+            komut3.Parameters.AddWithValue("@p1", label8.Text);
+            komut3.Parameters.AddWithValue("@p2", txtKitapID.Text);
+            komut3.ExecuteNonQuery();
+            bgl.baglan().Close();
+           
+            SqlCommand komut = new SqlCommand("DELETE FROM Tbl_Islemler Where ID=@p1", bgl.baglan());
+            komut.Parameters.AddWithValue("@p1", txtİslemID.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglan().Close();
+            MessageBox.Show("Kitap Teslim Alındı...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            IslemListele();
+            KitapListele();
         }
     }
 }

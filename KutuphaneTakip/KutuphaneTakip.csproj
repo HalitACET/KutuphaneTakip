@@ -46,12 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Baglanti.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Admin ekle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Admin ekle.Designer.cs">
+      <DependentUpon>Admin ekle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Giriş.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Giriş.Designer.cs">
+      <DependentUpon>Admin Giriş.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Baglanti.cs" />
+    <Compile Include="Ana Sayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa.Designer.cs">
+      <DependentUpon>Ana Sayfa.cs</DependentUpon>
     </Compile>
     <Compile Include="Giriş Formu.cs">
       <SubType>Form</SubType>
@@ -85,8 +97,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Tarihi Geçenler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tarihi Geçenler.Designer.cs">
+      <DependentUpon>Tarihi Geçenler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Verilen Kitaplar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verilen Kitaplar.Designer.cs">
+      <DependentUpon>Verilen Kitaplar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin ekle.resx">
+      <DependentUpon>Admin ekle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Giriş.resx">
+      <DependentUpon>Admin Giriş.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa.resx">
+      <DependentUpon>Ana Sayfa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Giriş Formu.resx">
       <DependentUpon>Giriş Formu.cs</DependentUpon>
@@ -112,6 +142,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Tarihi Geçenler.resx">
+      <DependentUpon>Tarihi Geçenler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Verilen Kitaplar.resx">
+      <DependentUpon>Verilen Kitaplar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

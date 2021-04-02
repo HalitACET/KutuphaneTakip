@@ -10,28 +10,29 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace KutuphaneTakip
 {
-    public partial class Giriş_Formu : Form
+    public partial class Admin_Giriş : Form
     {
-        public Giriş_Formu()
+        public Admin_Giriş()
         {
             InitializeComponent();
         }
         Baglanti bgl = new Baglanti();
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("SELECT * From Tbl_Adminler Where KullaniciAdi=@p1 and Sifre=@p2",bgl.baglan());
+            SqlCommand komut = new SqlCommand("Select * from Tbl_Adminler Where KullaniciAdi=@p1 and Sifre=@p2",bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtKullanici.Text);
             komut.Parameters.AddWithValue("@p2",txtSifre.Text);
             SqlDataReader dr = komut.ExecuteReader();
             if (dr.Read())
             {
-                Form1 frm = new Form1();
+                Admin_ekle frm = new Admin_ekle();
                 frm.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Böyle bir kayıt bulunamadı...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Admin Bulunamadı...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
     }
