@@ -68,6 +68,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "Sıfırla";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -77,6 +78,7 @@
             this.button1.TabIndex = 24;
             this.button1.Text = "Listele";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -98,6 +100,8 @@
             this.cmbYazar.Name = "cmbYazar";
             this.cmbYazar.Size = new System.Drawing.Size(145, 33);
             this.cmbYazar.TabIndex = 22;
+            this.cmbYazar.SelectedIndexChanged += new System.EventHandler(this.cmbYazar_SelectedIndexChanged);
+            this.cmbYazar.TextChanged += new System.EventHandler(this.cmbYazar_TextChanged);
             // 
             // txtKitapAd
             // 
@@ -105,6 +109,7 @@
             this.txtKitapAd.Name = "txtKitapAd";
             this.txtKitapAd.Size = new System.Drawing.Size(145, 31);
             this.txtKitapAd.TabIndex = 20;
+            this.txtKitapAd.TextChanged += new System.EventHandler(this.txtKitapAd_TextChanged);
             // 
             // label10
             // 
@@ -123,6 +128,7 @@
             this.btnListele.TabIndex = 17;
             this.btnListele.Text = "Listele";
             this.btnListele.UseVisualStyleBackColor = true;
+            this.btnListele.Click += new System.EventHandler(this.btnListele_Click);
             // 
             // label7
             // 
@@ -202,6 +208,7 @@
             this.txtBarkodNo.Name = "txtBarkodNo";
             this.txtBarkodNo.Size = new System.Drawing.Size(145, 31);
             this.txtBarkodNo.TabIndex = 1;
+            this.txtBarkodNo.TextChanged += new System.EventHandler(this.txtBarkodNo_TextChanged);
             // 
             // txtSayfaSag
             // 
@@ -263,6 +270,7 @@
             this.cmbYayinEvi.Name = "cmbYayinEvi";
             this.cmbYayinEvi.Size = new System.Drawing.Size(145, 33);
             this.cmbYayinEvi.TabIndex = 5;
+            this.cmbYayinEvi.TextChanged += new System.EventHandler(this.cmbYayinEvi_TextChanged);
             // 
             // cmbKitapturu
             // 
@@ -274,6 +282,7 @@
             this.cmbKitapturu.Name = "cmbKitapturu";
             this.cmbKitapturu.Size = new System.Drawing.Size(145, 33);
             this.cmbKitapturu.TabIndex = 7;
+            this.cmbKitapturu.TextChanged += new System.EventHandler(this.cmbKitapturu_TextChanged);
             // 
             // label3
             // 

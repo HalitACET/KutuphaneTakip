@@ -19,6 +19,7 @@ namespace KutuphaneTakip
         Baglanti bgl = new Baglanti();
         private void KitapListesi_Load(object sender, EventArgs e)
         {
+            //datadagriview nesnesine kitaplar tablosu listeleniyor ve yayın evi ile kitap türleri comboboxlara aktarılıyor
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID ", bgl.baglan());
             da.Fill(dt);
@@ -52,6 +53,7 @@ namespace KutuphaneTakip
 
         private void txtKitapAd_TextChanged(object sender, EventArgs e)
         {
+            //seçtiğimiz alana göre sıralama yapma sorguları
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where KitapAd like '%" + txtKitapAd.Text + "%'", bgl.baglan());
             da.Fill(dt);
@@ -60,6 +62,7 @@ namespace KutuphaneTakip
 
         private void txtBarkodNo_TextChanged(object sender, EventArgs e)
         {
+            //seçtiğimiz alana göre sıralama yapma sorguları
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where BarkodNo like '%" + txtBarkodNo.Text + "%'", bgl.baglan());
             da.Fill(dt);
@@ -68,6 +71,7 @@ namespace KutuphaneTakip
 
         private void cmbYazar_TextChanged(object sender, EventArgs e)
         {
+            //seçtiğimiz alana göre sıralama yapma sorguları
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where YazarAdSoyad like '%" + cmbYazar.Text + "%'", bgl.baglan());
             da.Fill(dt);
@@ -76,6 +80,7 @@ namespace KutuphaneTakip
 
         private void cmbYayinEvi_TextChanged(object sender, EventArgs e)
         {
+            //seçtiğimiz alana göre sıralama yapma sorguları
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where YayinEvi like '%" + cmbYayinEvi.Text + "%'", bgl.baglan());
             da.Fill(dt);
@@ -84,6 +89,7 @@ namespace KutuphaneTakip
 
         private void cmbKitapturu_TextChanged(object sender, EventArgs e)
         {
+            //seçtiğimiz alana göre sıralama yapma sorguları
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where Tbl_Kitap_Turleri.KitapTuru like '%" + cmbKitapturu.Text + "%'", bgl.baglan());
             da.Fill(dt);
@@ -92,6 +98,7 @@ namespace KutuphaneTakip
 
         private void btnListele_Click(object sender, EventArgs e)
         {
+            //Kitap sayfa aralığı bulma sorgusu
             SqlCommand komut = new SqlCommand("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where KitapSayfa between @p1 and @p2", bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtSayfaSol.Text);
             komut.Parameters.AddWithValue("@p2",txtSayfaSag.Text);
@@ -103,6 +110,7 @@ namespace KutuphaneTakip
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Kitap Fiyat aralığı bulma sorgusu
             SqlCommand komut = new SqlCommand("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where KitapFiyati between @p1 and @p2", bgl.baglan());
             komut.Parameters.AddWithValue("@p1",Convert.ToInt16( txtFiyatSol.Text));
             komut.Parameters.AddWithValue("@p2",Convert.ToInt16( txtFiyatSag.Text));
@@ -114,6 +122,7 @@ namespace KutuphaneTakip
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Kitaplar tablosu datagridview nesnesinde listeleniyor
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID ", bgl.baglan());
             da.Fill(dt);

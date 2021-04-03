@@ -16,9 +16,11 @@ namespace KutuphaneTakip
         {
             InitializeComponent();
         }
+        //baglanti sınıfı çağrıldı
         Baglanti bgl = new Baglanti();
         private void btnGiris_Click(object sender, EventArgs e)
         {
+            //Giriş yapmak için gerekli olan bilgiler sorgulanıyor
             SqlCommand komut = new SqlCommand("SELECT * From Tbl_Adminler Where KullaniciAdi=@p1 and Sifre=@p2",bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtKullanici.Text);
             komut.Parameters.AddWithValue("@p2",txtSifre.Text);

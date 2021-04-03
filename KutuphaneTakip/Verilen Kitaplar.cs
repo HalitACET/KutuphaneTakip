@@ -19,11 +19,119 @@ namespace KutuphaneTakip
         Baglanti bgl = new Baglanti();
         private void Verilen_Kitaplar_Load(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand();
+            //datadagriview nesnesine kitaplar tablosu listeleniyor ve yayın evi ile kitap türleri comboboxlara aktarılıyor
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID inner join Tbl_Islemler on Tbl_Kitaplar.ID=Tbl_Islemler.KitapID", bgl.baglan());
             da.Fill(dt);
             dataGridView1.DataSource = dt;
+
+            SqlCommand komut3 = new SqlCommand("Select YazarAdSoyad From Tbl_Kitaplar", bgl.baglan());
+            SqlDataReader dr = komut3.ExecuteReader();
+            while (dr.Read())
+            {
+                cmbYazar.Items.Add(dr[0]);
+            }
+            bgl.baglan().Close();
+
+            SqlCommand komut2 = new SqlCommand("Select YayinEvi From Tbl_Kitaplar", bgl.baglan());
+            SqlDataReader dr2 = komut2.ExecuteReader();
+            while (dr2.Read())
+            {
+                cmbYayinEvi.Items.Add(dr2[0]);
+            }
+            bgl.baglan().Close();
+
+            SqlCommand komut = new SqlCommand("Select KitapTuru From Tbl_Kitap_Turleri ", bgl.baglan());
+            SqlDataReader dr3 = komut.ExecuteReader();
+            while (dr3.Read())
+            {
+                cmbKitapturu.Items.Add(dr3[0]);
+            }
+            bgl.baglan().Close();
+        }
+
+        private void txtKitapAd_TextChanged(object sender, EventArgs e)
+        {
+            //seçtiğimiz alana göre sıralama yapma sorguları
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where KitapAd like '%" + txtKitapAd.Text + "%'", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void txtBarkodNo_TextChanged(object sender, EventArgs e)
+        {
+            //seçtiğimiz alana göre sıralama yapma sorguları
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where BarkodNo like '%" + txtBarkodNo.Text + "%'", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void cmbYazar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbYazar_TextChanged(object sender, EventArgs e)
+        {
+            //seçtiğimiz alana göre sıralama yapma sorguları
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where YazarAdSoyad like '%" + cmbYazar.Text + "%'", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void cmbYayinEvi_TextChanged(object sender, EventArgs e)
+        {
+            //seçtiğimiz alana göre sıralama yapma sorguları
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where YayinEvi like '%" + cmbYayinEvi.Text + "%'", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void cmbKitapturu_TextChanged(object sender, EventArgs e)
+        {
+            //seçtiğimiz alana göre sıralama yapma sorguları
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where Tbl_Kitap_Turleri.KitapTuru like '%" + cmbKitapturu.Text + "%'", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void btnListele_Click(object sender, EventArgs e)
+        {
+            //Kitap sayfa aralığı bulma sorgusu
+            SqlCommand komut = new SqlCommand("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where KitapSayfa between @p1 and @p2", bgl.baglan());
+            komut.Parameters.AddWithValue("@p1", txtSayfaSol.Text);
+            komut.Parameters.AddWithValue("@p2", txtSayfaSag.Text);
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(komut);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Kitap Fiyat aralığı bulma sorgusu
+            SqlCommand komut = new SqlCommand("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID Where KitapFiyati between @p1 and @p2", bgl.baglan());
+            komut.Parameters.AddWithValue("@p1", Convert.ToInt16(txtFiyatSol.Text));
+            komut.Parameters.AddWithValue("@p2", Convert.ToInt16(txtFiyatSag.Text));
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(komut);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Kitaplar tablosu datagridview nesnesinde listeleniyor
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Tbl_Kitaplar.ID,BarkodNo,KitapAd,YazarAdSoyad,YayinEvi,Tbl_Kitap_Turleri.KitapTuru,KitapSayfa,KitapKonu,Tbl_Sehirler.Sehirler,BaskiTarihi,KitapFiyati,Stok FROM Tbl_Kitaplar INNER JOIN Tbl_Kitap_Turleri on Tbl_Kitap_Turleri.ID=Tbl_Kitaplar.KitapTuruID INNER JOIN Tbl_Sehirler on Tbl_Sehirler.ID=Tbl_Kitaplar.BaskiYeriID ", bgl.baglan());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            bgl.baglan().Close();
         }
     }
 }

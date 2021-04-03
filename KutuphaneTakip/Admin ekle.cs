@@ -19,6 +19,7 @@ namespace KutuphaneTakip
         Baglanti bgl = new Baglanti();
         public void adminlistele()
         {
+            //admin tablosundan verileri listeleyen metod
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select * from Tbl_Adminler",bgl.baglan());
             da.Fill(dt);
@@ -31,6 +32,7 @@ namespace KutuphaneTakip
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
+            //admin ekleme sorgusu
             SqlCommand komut = new SqlCommand("Insert Into Tbl_Adminler (Adi,Soyadi,TCNO,Telefon,Eposta,KullaniciAdi,Sifre) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7)", bgl.baglan());
             komut.Parameters.AddWithValue("@p1", txtAd.Text);
             komut.Parameters.AddWithValue("@p2", txtSoyad.Text);
@@ -47,6 +49,7 @@ namespace KutuphaneTakip
 
         private void btnSil_Click(object sender, EventArgs e)
         {
+            //admin silme sorgusu
             SqlCommand komut = new SqlCommand("Delete from Tbl_Adminler Where ID=@p1",bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtID.Text);
             komut.ExecuteNonQuery();
@@ -57,6 +60,7 @@ namespace KutuphaneTakip
 
         private void btnGüncelle_Click(object sender, EventArgs e)
         {
+            //admin güncelleme sorgusu
             SqlCommand komut = new SqlCommand("Update Tbl_Adminler Set Adi=@p1,Soyadi=@p2,TCNO=@p3,Telefon=@p4,Eposta=@p5,KullaniciAdi=@p6,Sifre=@p7 Where ID=@p8",bgl.baglan());
             komut.Parameters.AddWithValue("@p1", txtAd.Text);
             komut.Parameters.AddWithValue("@p2", txtSoyad.Text);
@@ -73,6 +77,7 @@ namespace KutuphaneTakip
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //datagridview nesnesinde tıkladığımız hücre ler textboxlara taşınıyor
             txtID.Text= dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txtAd.Text= dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtSoyad.Text= dataGridView1.CurrentRow.Cells[2].Value.ToString();
