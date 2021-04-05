@@ -17,7 +17,7 @@ namespace KutuphaneTakip
             InitializeComponent();
         }
         Baglanti bgl = new Baglanti();
-
+        DateTime date = DateTime.Now;
         public void listele()
         {
             //Üyeler tablosu datagridview nesnesinde listelendi
@@ -27,10 +27,27 @@ namespace KutuphaneTakip
             dataGridView1.DataSource = dt;
             bgl.baglan().Close();
         }
+        public void temizle()
+        {
+            //temizleme metodu
+            textBox1.Text = "";
+            mskTC.Text = "";
+            txtAd.Text = "";
+            txtSoyad.Text = "";
+            txtSifre.Text = "";
+            cmbDgm.Text = "";
+            mskDgmtrh.Text = "";
+            mskTel.Text = "";
+            txtEposta.Text = "";
+            mskUylktrh.Text = "";
+            cmbCinsiyet.Text = "";
+            rchtxtAdres.Text = "";
+            mskUylktrh.Text = date.ToShortDateString();
+        }
         private void Okuyucu_Load(object sender, EventArgs e)
         {
             //bugünün tarihi otomatik olarak üyelik tarihine gelior ve veritabanından şehirler combobox a aktarılıyor
-            DateTime date = DateTime.Now;
+            
             listele();
             mskUylktrh.Text = date.ToShortDateString();
             SqlCommand komut = new SqlCommand("SELECT Sehirler FROM Tbl_Sehirler",bgl.baglan());
@@ -62,6 +79,7 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Eklendi...","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
             listele();
+            temizle();
         }
 
         private void btnGüncelle_Click(object sender, EventArgs e)
@@ -86,6 +104,7 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Güncellendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
+            temizle();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -114,6 +133,7 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Silindi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
+            temizle();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

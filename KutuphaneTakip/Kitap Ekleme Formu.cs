@@ -25,6 +25,22 @@ namespace KutuphaneTakip
             da.Fill(dt);
             dataGridView1.DataSource = dt;
         }
+        public void temizle()
+        {
+            //temizleme metodu
+            txtID.Text = "";
+            txtBarkod.Text = "";
+            txtKitapAd.Text = "";
+            txtYazar.Text = "";
+            txtYayınEvi.Text = "";
+            cmbKitaptur.Text = "";
+            txtKitapSayfa.Text = "";
+            rchtxtKitapKonu.Text = "";
+            cmbBaskıYer.Text = "";
+            mskBaskiTarih.Text = "";
+            txtKitapFiyat.Text = "";
+            txtStok.Text = "";
+        }
         private void Kitap_Ekleme_Formu_Load(object sender, EventArgs e)
         {
             //Kitap Türleri ve sehirler comboboxlara aktarıldı
@@ -67,6 +83,7 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Eklendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
+            temizle();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -78,6 +95,7 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Silindi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
+            temizle();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,6 +137,7 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Güncellendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
+            temizle();
         }
     }
 }

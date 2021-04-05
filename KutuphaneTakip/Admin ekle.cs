@@ -29,7 +29,17 @@ namespace KutuphaneTakip
         {
             adminlistele();
         }
-
+        public void temizle()
+        {
+            txtID.Text = "";
+            txtAd.Text = "";
+            txtSoyad.Text = "";
+            mskTC.Text = "";
+            mskTel.Text = "";
+            txtEposta.Text = "";
+            txtKullanici.Text = "";
+            txtSifre.Text = "";
+        }
         private void btnEkle_Click(object sender, EventArgs e)
         {
             //admin ekleme sorgusu
@@ -45,6 +55,7 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Eklendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             adminlistele();
+            temizle();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -56,6 +67,8 @@ namespace KutuphaneTakip
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Silindi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             adminlistele();
+            temizle();
+               
         }
 
         private void btnGüncelle_Click(object sender, EventArgs e)
@@ -73,6 +86,7 @@ namespace KutuphaneTakip
             komut.ExecuteNonQuery();
             MessageBox.Show("Kayıt Güncellendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             adminlistele();
+            temizle();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
