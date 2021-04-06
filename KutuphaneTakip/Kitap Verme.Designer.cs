@@ -57,12 +57,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.mskAlınacakTarih = new System.Windows.Forms.MaskedTextBox();
-            this.mskVerilenTarih = new System.Windows.Forms.MaskedTextBox();
             this.txtKitapID = new System.Windows.Forms.TextBox();
             this.txtUyeID = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -122,6 +122,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.pictureBox4);
             this.groupBox3.Controls.Add(this.pictureBox3);
@@ -145,8 +147,6 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.mskAlınacakTarih);
-            this.groupBox3.Controls.Add(this.mskVerilenTarih);
             this.groupBox3.Controls.Add(this.txtKitapID);
             this.groupBox3.Controls.Add(this.txtUyeID);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
@@ -376,24 +376,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Üye ID:";
             // 
-            // mskAlınacakTarih
-            // 
-            this.mskAlınacakTarih.Location = new System.Drawing.Point(194, 269);
-            this.mskAlınacakTarih.Mask = "00/00/0000";
-            this.mskAlınacakTarih.Name = "mskAlınacakTarih";
-            this.mskAlınacakTarih.Size = new System.Drawing.Size(160, 31);
-            this.mskAlınacakTarih.TabIndex = 3;
-            this.mskAlınacakTarih.ValidatingType = typeof(System.DateTime);
-            // 
-            // mskVerilenTarih
-            // 
-            this.mskVerilenTarih.Location = new System.Drawing.Point(194, 232);
-            this.mskVerilenTarih.Mask = "00/00/0000";
-            this.mskVerilenTarih.Name = "mskVerilenTarih";
-            this.mskVerilenTarih.Size = new System.Drawing.Size(160, 31);
-            this.mskVerilenTarih.TabIndex = 2;
-            this.mskVerilenTarih.ValidatingType = typeof(System.DateTime);
-            // 
             // txtKitapID
             // 
             this.txtKitapID.Location = new System.Drawing.Point(194, 195);
@@ -429,6 +411,20 @@
             this.dataGridView3.Size = new System.Drawing.Size(393, 197);
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(194, 232);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(160, 31);
+            this.textBox1.TabIndex = 27;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(194, 269);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(160, 31);
+            this.textBox2.TabIndex = 28;
             // 
             // Kitap_Verme
             // 
@@ -473,8 +469,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox mskAlınacakTarih;
-        private System.Windows.Forms.MaskedTextBox mskVerilenTarih;
         private System.Windows.Forms.TextBox txtKitapID;
         private System.Windows.Forms.TextBox txtUyeID;
         private System.Windows.Forms.Button BtnGüncelle;
@@ -497,5 +491,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

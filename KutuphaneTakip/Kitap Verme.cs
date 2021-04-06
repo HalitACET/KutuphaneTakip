@@ -50,7 +50,7 @@ namespace KutuphaneTakip
             IslemListele();
 
             DateTime date = DateTime.Now;
-            mskVerilenTarih.Text = date.ToShortDateString();
+            textBox1.Text = date.ToShortDateString();
         }
 
         private void txtKitapAd_TextChanged(object sender, EventArgs e)
@@ -92,8 +92,8 @@ namespace KutuphaneTakip
             txtİslemID.Text= dataGridView3.CurrentRow.Cells[0].Value.ToString();
             txtUyeID.Text= dataGridView3.CurrentRow.Cells[1].Value.ToString();
             txtKitapID.Text= dataGridView3.CurrentRow.Cells[2].Value.ToString();
-            mskVerilenTarih.Text= dataGridView3.CurrentRow.Cells[3].Value.ToString();
-            mskAlınacakTarih.Text= dataGridView3.CurrentRow.Cells[4].Value.ToString();
+            textBox1.Text= dataGridView3.CurrentRow.Cells[3].Value.ToString();
+            textBox2.Text= dataGridView3.CurrentRow.Cells[4].Value.ToString();
             label8.Text= dataGridView3.CurrentRow.Cells[5].Value.ToString();
             a = Convert.ToInt16(label8.Text);
         }
@@ -106,8 +106,8 @@ namespace KutuphaneTakip
             SqlCommand komut = new SqlCommand("INSERT INTO Tbl_Islemler (UyeID,KitapID,VerilenTarih,AlinanTarih) Values (@p1,@p2,@p3,@p4)", bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtUyeID.Text);
             komut.Parameters.AddWithValue("@p2",txtKitapID.Text);
-            komut.Parameters.AddWithValue("@p3",mskVerilenTarih.Text);
-            komut.Parameters.AddWithValue("@p4",mskAlınacakTarih.Text);
+            komut.Parameters.AddWithValue("@p3",textBox1.Text);
+            komut.Parameters.AddWithValue("@p4",textBox2.Text);
             komut.ExecuteNonQuery();
             bgl.baglan().Close();
 
@@ -125,28 +125,28 @@ namespace KutuphaneTakip
         {
             //bugünün tarihinden 15 gün arttırma
             DateTime date = DateTime.Now.AddDays(15);
-            mskAlınacakTarih.Text = date.ToShortDateString();
+            textBox2.Text = date.ToShortDateString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //bugünün tarihinden 30 gün arttırma
             DateTime date = DateTime.Now.AddDays(30);
-            mskAlınacakTarih.Text = date.ToShortDateString();
+            textBox2.Text = date.ToShortDateString();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             //bugünün tarihinden 45 gün arttırma
             DateTime date = DateTime.Now.AddDays(45);
-            mskAlınacakTarih.Text = date.ToShortDateString();
+            textBox2.Text = date.ToShortDateString();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             //bugünün tarihinden 60 gün arttırma
             DateTime date = DateTime.Now.AddDays(60);
-            mskAlınacakTarih.Text = date.ToShortDateString();
+            textBox2.Text = date.ToShortDateString();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -166,8 +166,8 @@ namespace KutuphaneTakip
             SqlCommand komut = new SqlCommand("Update Tbl_Islemler SET UyeID=@p1,KitapID=@p2,VerilenTarih=@p3,AlinanTarih=@p4 Where ID=@p5",bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtUyeID.Text);
             komut.Parameters.AddWithValue("@p2",txtKitapID.Text);
-            komut.Parameters.AddWithValue("@p3", Convert.ToDateTime(mskVerilenTarih.Text));
-            komut.Parameters.AddWithValue("@p4",Convert.ToDateTime(mskAlınacakTarih.Text));
+            komut.Parameters.AddWithValue("@p3", textBox1.Text);
+            komut.Parameters.AddWithValue("@p4",textBox2.Text);
             komut.Parameters.AddWithValue("@p5",txtİslemID.Text);
             komut.ExecuteNonQuery();
             bgl.baglan().Close();
