@@ -34,6 +34,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -62,7 +63,6 @@
             this.txtUyeID = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -157,6 +157,16 @@
             this.groupBox3.Text = "İşlemler";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(19, 406);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(160, 44);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Teslim Al";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -205,6 +215,7 @@
             this.label8.Size = new System.Drawing.Size(53, 25);
             this.label8.TabIndex = 21;
             this.label8.Text = "Null";
+            this.label8.Visible = false;
             // 
             // button4
             // 
@@ -418,16 +429,6 @@
             this.dataGridView3.Size = new System.Drawing.Size(393, 197);
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(19, 406);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(160, 44);
-            this.button5.TabIndex = 26;
-            this.button5.Text = "Teslim Al";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Kitap_Verme
             // 
