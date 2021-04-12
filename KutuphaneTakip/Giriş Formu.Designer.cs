@@ -48,7 +48,7 @@
             this.txtSifre.Location = new System.Drawing.Point(168, 121);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(159, 31);
-            this.txtSifre.TabIndex = 0;
+            this.txtSifre.TabIndex = 2;
             this.txtSifre.UseSystemPasswordChar = true;
             // 
             // btnGiris
@@ -56,7 +56,7 @@
             this.btnGiris.Location = new System.Drawing.Point(168, 158);
             this.btnGiris.Name = "btnGiris";
             this.btnGiris.Size = new System.Drawing.Size(159, 38);
-            this.btnGiris.TabIndex = 2;
+            this.btnGiris.TabIndex = 3;
             this.btnGiris.Text = "Giriş Yap";
             this.btnGiris.UseVisualStyleBackColor = true;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
@@ -104,7 +104,7 @@
             this.txtKullanici.Location = new System.Drawing.Point(168, 84);
             this.txtKullanici.Name = "txtKullanici";
             this.txtKullanici.Size = new System.Drawing.Size(159, 31);
-            this.txtKullanici.TabIndex = 7;
+            this.txtKullanici.TabIndex = 1;
             // 
             // label7
             // 

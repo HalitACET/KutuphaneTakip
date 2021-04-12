@@ -39,17 +39,17 @@ namespace KutuphaneTakip
             mskDgmtrh.Text = "";
             mskTel.Text = "";
             txtEposta.Text = "";
-            mskUylktrh.Text = "";
+            textBox2.Text = "";
             cmbCinsiyet.Text = "";
             rchtxtAdres.Text = "";
-            mskUylktrh.Text = date.ToShortDateString();
+            textBox2.Text = date.ToShortDateString();
         }
         private void Okuyucu_Load(object sender, EventArgs e)
         {
             //bugünün tarihi otomatik olarak üyelik tarihine gelior ve veritabanından şehirler combobox a aktarılıyor
             
             listele();
-            mskUylktrh.Text = date.ToShortDateString();
+            textBox2.Text = date.ToShortDateString();
             SqlCommand komut = new SqlCommand("SELECT Sehirler FROM Tbl_Sehirler",bgl.baglan());
             SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
@@ -71,7 +71,7 @@ namespace KutuphaneTakip
             komut.Parameters.AddWithValue("@p5", Convert.ToDateTime(mskDgmtrh.Text).Date);
             komut.Parameters.AddWithValue("@p6", mskTel.Text);
             komut.Parameters.AddWithValue("@p7", txtEposta.Text);
-            komut.Parameters.AddWithValue("@p8", Convert.ToDateTime(mskUylktrh.Text).Date);
+            komut.Parameters.AddWithValue("@p8", Convert.ToDateTime(textBox2.Text).Date);
             komut.Parameters.AddWithValue("@p9", cmbCinsiyet.Text);
             komut.Parameters.AddWithValue("@p10", rchtxtAdres.Text);
             komut.Parameters.AddWithValue("@p11",txtSifre.Text);
@@ -95,7 +95,7 @@ namespace KutuphaneTakip
             komut.Parameters.AddWithValue("@p5", Convert.ToDateTime(mskDgmtrh.Text).Date);
             komut.Parameters.AddWithValue("@p6", mskTel.Text);
             komut.Parameters.AddWithValue("@p7", txtEposta.Text);
-            komut.Parameters.AddWithValue("@p8", Convert.ToDateTime(mskUylktrh.Text).Date);
+            komut.Parameters.AddWithValue("@p8", Convert.ToDateTime(textBox2.Text).Date);
             komut.Parameters.AddWithValue("@p9", cmbCinsiyet.Text);
             komut.Parameters.AddWithValue("@p10", rchtxtAdres.Text);
             komut.Parameters.AddWithValue("@p11",textBox1.Text);
@@ -119,7 +119,7 @@ namespace KutuphaneTakip
             mskDgmtrh.Text= dataGridView1.CurrentRow.Cells[6].Value.ToString();
             mskTel.Text= dataGridView1.CurrentRow.Cells[7].Value.ToString();
             txtEposta.Text= dataGridView1.CurrentRow.Cells[8].Value.ToString();
-            mskUylktrh.Text= dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            textBox2.Text= dataGridView1.CurrentRow.Cells[9].Value.ToString();
             cmbCinsiyet.Text= dataGridView1.CurrentRow.Cells[10].Value.ToString();
             rchtxtAdres.Text= dataGridView1.CurrentRow.Cells[11].Value.ToString();
         }

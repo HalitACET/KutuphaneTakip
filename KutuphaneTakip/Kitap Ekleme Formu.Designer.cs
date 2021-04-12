@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kitap_Ekleme_Formu));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnGüncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnEkle = new System.Windows.Forms.Button();
             this.rchtxtKitapKonu = new System.Windows.Forms.RichTextBox();
-            this.mskBaskiTarih = new System.Windows.Forms.MaskedTextBox();
             this.cmbBaskıYer = new System.Windows.Forms.ComboBox();
             this.cmbKitaptur = new System.Windows.Forms.ComboBox();
             this.txtStok = new System.Windows.Forms.TextBox();
@@ -59,21 +59,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.btnGüncelle);
             this.groupBox2.Controls.Add(this.btnSil);
             this.groupBox2.Controls.Add(this.btnEkle);
             this.groupBox2.Controls.Add(this.rchtxtKitapKonu);
-            this.groupBox2.Controls.Add(this.mskBaskiTarih);
             this.groupBox2.Controls.Add(this.cmbBaskıYer);
             this.groupBox2.Controls.Add(this.cmbKitaptur);
             this.groupBox2.Controls.Add(this.txtStok);
@@ -101,6 +101,16 @@
             this.groupBox2.Size = new System.Drawing.Size(452, 704);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(37, 562);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 107);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
             // 
             // btnGüncelle
             // 
@@ -139,15 +149,6 @@
             this.rchtxtKitapKonu.Size = new System.Drawing.Size(183, 96);
             this.rchtxtKitapKonu.TabIndex = 7;
             this.rchtxtKitapKonu.Text = "";
-            // 
-            // mskBaskiTarih
-            // 
-            this.mskBaskiTarih.Location = new System.Drawing.Point(212, 426);
-            this.mskBaskiTarih.Mask = "00/00/0000";
-            this.mskBaskiTarih.Name = "mskBaskiTarih";
-            this.mskBaskiTarih.Size = new System.Drawing.Size(183, 31);
-            this.mskBaskiTarih.TabIndex = 9;
-            this.mskBaskiTarih.ValidatingType = typeof(System.DateTime);
             // 
             // cmbBaskıYer
             // 
@@ -357,15 +358,12 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // pictureBox1
+            // textBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(37, 562);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 107);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
+            this.textBox1.Location = new System.Drawing.Point(211, 426);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(183, 31);
+            this.textBox1.TabIndex = 30;
             // 
             // Kitap_Ekleme_Formu
             // 
@@ -382,9 +380,9 @@
             this.Load += new System.EventHandler(this.Kitap_Ekleme_Formu_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,7 +407,6 @@
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.RichTextBox rchtxtKitapKonu;
-        private System.Windows.Forms.MaskedTextBox mskBaskiTarih;
         private System.Windows.Forms.ComboBox cmbBaskıYer;
         private System.Windows.Forms.ComboBox cmbKitaptur;
         private System.Windows.Forms.TextBox txtStok;
@@ -422,5 +419,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

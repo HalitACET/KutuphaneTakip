@@ -45,7 +45,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtEposta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.mskUylktrh = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbCinsiyet = new System.Windows.Forms.ComboBox();
@@ -63,6 +62,7 @@
             this.txtSifre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -213,15 +213,6 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "E-posta:";
             // 
-            // mskUylktrh
-            // 
-            this.mskUylktrh.Location = new System.Drawing.Point(171, 365);
-            this.mskUylktrh.Mask = "00/00/0000";
-            this.mskUylktrh.Name = "mskUylktrh";
-            this.mskUylktrh.Size = new System.Drawing.Size(229, 31);
-            this.mskUylktrh.TabIndex = 17;
-            this.mskUylktrh.ValidatingType = typeof(System.DateTime);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -300,6 +291,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
@@ -322,7 +314,6 @@
             this.groupBox2.Controls.Add(this.txtSoyad);
             this.groupBox2.Controls.Add(this.cmbCinsiyet);
             this.groupBox2.Controls.Add(this.cmbDgm);
-            this.groupBox2.Controls.Add(this.mskUylktrh);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label5);
@@ -411,6 +402,13 @@
             this.textBox1.Size = new System.Drawing.Size(229, 31);
             this.textBox1.TabIndex = 26;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(171, 365);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(229, 31);
+            this.textBox2.TabIndex = 33;
+            // 
             // Okuyucu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
@@ -454,7 +452,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEposta;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox mskUylktrh;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbCinsiyet;
@@ -472,5 +469,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

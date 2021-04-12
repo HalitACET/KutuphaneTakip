@@ -37,7 +37,7 @@ namespace KutuphaneTakip
             txtKitapSayfa.Text = "";
             rchtxtKitapKonu.Text = "";
             cmbBaskıYer.Text = "";
-            mskBaskiTarih.Text = "";
+            textBox1.Text = "";
             txtKitapFiyat.Text = "";
             txtStok.Text = "";
         }
@@ -76,7 +76,7 @@ namespace KutuphaneTakip
             komut.Parameters.AddWithValue("@p6", Convert.ToInt16(txtKitapSayfa.Text));
             komut.Parameters.AddWithValue("@p7",rchtxtKitapKonu.Text);
             komut.Parameters.AddWithValue("@p8",b);
-            komut.Parameters.AddWithValue("@p9",Convert.ToDateTime(mskBaskiTarih.Text).Date);
+            komut.Parameters.AddWithValue("@p9",Convert.ToDateTime(textBox1.Text).Date);
             komut.Parameters.AddWithValue("@p10",txtKitapFiyat.Text);
             komut.Parameters.AddWithValue("@p11", Convert.ToInt16(txtStok.Text));
             komut.ExecuteNonQuery();
@@ -89,7 +89,7 @@ namespace KutuphaneTakip
         private void btnSil_Click(object sender, EventArgs e)
         {
             //Kitap silme sorgusu
-            SqlCommand komut = new SqlCommand("DELETE FROM Tbl_Kitaplar WHERE ID=@p1",bgl.baglan());
+            SqlCommand komut = new SqlCommand("DELETE FROM Tbl_Kitaplar WHERE Tbl_Kitaplar.ID=@p1",bgl.baglan());
             komut.Parameters.AddWithValue("@p1",txtID.Text);
             komut.ExecuteNonQuery();
             bgl.baglan().Close();
@@ -110,7 +110,7 @@ namespace KutuphaneTakip
             txtKitapSayfa.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
             rchtxtKitapKonu.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
             cmbBaskıYer.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-            mskBaskiTarih.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            textBox1.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
             txtKitapFiyat.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
             txtStok.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
         }
@@ -129,7 +129,7 @@ namespace KutuphaneTakip
             komut.Parameters.AddWithValue("@p6", Convert.ToInt16(txtKitapSayfa.Text));
             komut.Parameters.AddWithValue("@p7", rchtxtKitapKonu.Text);
             komut.Parameters.AddWithValue("@p8", b);
-            komut.Parameters.AddWithValue("@p9", Convert.ToDateTime(mskBaskiTarih.Text).Date);
+            komut.Parameters.AddWithValue("@p9", Convert.ToDateTime(textBox1.Text).Date);
             komut.Parameters.AddWithValue("@p10", txtKitapFiyat.Text);
             komut.Parameters.AddWithValue("@p11", Convert.ToInt16(txtStok.Text));
             komut.Parameters.AddWithValue("@p12", Convert.ToInt16(txtID.Text));
