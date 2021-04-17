@@ -42,15 +42,45 @@ namespace KutuphaneTakip
         }
         private void btnEkle_Click(object sender, EventArgs e)
         {
+            string ad = txtAd.Text;
+            byte[] addizi = ASCIIEncoding.ASCII.GetBytes(ad);
+            string adsifre = Convert.ToBase64String(addizi);
+
+            string sifre = txtSifre.Text;
+            byte[] sifredizi = ASCIIEncoding.ASCII.GetBytes(sifre);
+            string sifresifre = Convert.ToBase64String(sifredizi);
+
+            string soyad = txtSoyad.Text;
+            byte[] soyaddizi = ASCIIEncoding.ASCII.GetBytes(soyad);
+            string soyadsifre = Convert.ToBase64String(soyaddizi);
+
+            string tc = mskTC.Text;
+            byte[] tcdizi = ASCIIEncoding.ASCII.GetBytes(tc);
+            string tcsifre = Convert.ToBase64String(tcdizi);
+
+            string tel = mskTel.Text;
+            byte[] teldizi = ASCIIEncoding.ASCII.GetBytes(tel);
+            string telsifre = Convert.ToBase64String(teldizi);
+
+            string eposta = txtEposta.Text;
+            byte[] epostadizi = ASCIIEncoding.ASCII.GetBytes(eposta);
+            string epostasifre = Convert.ToBase64String(epostadizi);
+
+            string kullanici = txtKullanici.Text;
+            byte[] kullanicidizi = ASCIIEncoding.ASCII.GetBytes(kullanici);
+            string kullanicisifre = Convert.ToBase64String(kullanicidizi);
+
+
+
             //admin ekleme sorgusu
             SqlCommand komut = new SqlCommand("Insert Into Tbl_Adminler (Adi,Soyadi,TCNO,Telefon,Eposta,KullaniciAdi,Sifre) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7)", bgl.baglan());
-            komut.Parameters.AddWithValue("@p1", txtAd.Text);
-            komut.Parameters.AddWithValue("@p2", txtSoyad.Text);
-            komut.Parameters.AddWithValue("@p3", mskTC.Text);
-            komut.Parameters.AddWithValue("@p4", mskTel.Text);
-            komut.Parameters.AddWithValue("@p5", txtEposta.Text);
-            komut.Parameters.AddWithValue("@p6", txtKullanici.Text);
-            komut.Parameters.AddWithValue("@p7", txtSifre.Text);
+            komut.Parameters.AddWithValue("@p1", adsifre);
+            komut.Parameters.AddWithValue("@p2", soyadsifre);
+            komut.Parameters.AddWithValue("@p3", tcsifre);
+            komut.Parameters.AddWithValue("@p4", telsifre);
+            komut.Parameters.AddWithValue("@p5", epostasifre);
+            komut.Parameters.AddWithValue("@p6", kullanicisifre);
+            komut.Parameters.AddWithValue("@p7", sifresifre);
             komut.ExecuteNonQuery();
             bgl.baglan().Close();
             MessageBox.Show("Kayıt Eklendi...", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,6 +130,12 @@ namespace KutuphaneTakip
             txtEposta.Text= dataGridView1.CurrentRow.Cells[5].Value.ToString();
             txtKullanici.Text= dataGridView1.CurrentRow.Cells[6].Value.ToString();
             txtSifre.Text= dataGridView1.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+           
         }
     }
 }
