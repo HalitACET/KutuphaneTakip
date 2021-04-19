@@ -134,7 +134,10 @@ namespace KutuphaneTakip
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+            string sifrecozum = txtSifre.Text;
+            byte[] sifrecozumdizi = Convert.FromBase64String(sifrecozum);
+            string sifreverisi = ASCIIEncoding.ASCII.GetString(sifrecozumdizi);
+            label7.Text = sifreverisi;
            
         }
     }
